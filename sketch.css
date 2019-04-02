@@ -5,7 +5,34 @@
     font-family: Helvetica, sans-serif;
 }
 
+body {
+    background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+}
+
 h1 {
     text-align: center;
     margin: 1em;
+    color: #FFF;
+    font-size: 3rem;
+}
+
+#main-wrapper {
+    margin: 2em auto;
+    width: 604px;
+    height: 604px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 2px solid #000;
+    background-color: #CCC;
+}
+
+.cell {
+    border: 1px solid #444;
+    background-color: #FFF;
+    transition: all 2s;
+}
+
+.fill-blue {
+    background-color: #004080;
 }
