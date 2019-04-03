@@ -6,22 +6,35 @@ function createGrid(numSquares) {
     for (let i = 0; i < numberOfCells; i++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.style.width = cellSize + "px";
-        cell.style.height = cellSize + "px";
+        cell.style.width = `${cellSize}px`;
+        cell.style.height = `${cellSize}px`;
         wrapper.appendChild(cell);
     }
     colorBlue();
 }
 
-createGrid(16);
-
 function colorBlue() {
     let cells = document.querySelectorAll(".cell");
-
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener("mouseover", function() {
             cells[i].classList.add("fill-blue");
         }) 
+    }
+}
+
+// forEach option
+function deleteGrid() {
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach(function(cell) {
+        cell.parentNode.removeChild(cell);
+    })
+}
+
+// For loop option
+function deleteGrid2() {
+    let cells = document.querySelectorAll(".cell");
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].parentNode.removeChild(cells[i]);
     }
 }
 
@@ -30,17 +43,38 @@ function colorBlue() {
 let resetButton = document.querySelector(".reset");
 resetButton.addEventListener("click", function() {
     let cells = document.querySelectorAll(".cell");
-
     for (let i = 0; i < cells.length; i++) {
         cells[i].classList.remove("fill-blue"); 
+        cells[i].style.backgroundColor = null;
     }
 });
 
 let newGridButton = document.querySelector(".new-grid");
-console.log(newGridButton);
 newGridButton.addEventListener("click", function() {
-    userSelection = window.prompt("Please enter a positive number of squares for a new grid creation. 'Ex. 4 would create a 4x4 grid'", 16);
+    userSelection = window.prompt("Please enter a positive number \(100 or fewer\) for a new grid creation. \(Ex. Entering '4' would create a 4x4 grid\)", 16);
+    deleteGrid();
     createGrid(userSelection);
 })
 
+let randomColorButton = document.querySelector(".rgb");
+randomColorButton.addEventListener("click", function() {
+    let cells = document.querySelectorAll(".cell");
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener("mouseover", function() {
+            cells[i].style.backgroundColor = selectRandomColor();
+        }) 
+    }
+})
+
+function selectRandomColor() {
+    let values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+    let hexColor = "#";
+    for (let i = 0; i < 6; i++) {
+        hexColor += values[Math.floor(Math.random() * 16)];
+    }
+    return hexColor;
+}
+
+selectRandomColor();
+createGrid(16);
 
