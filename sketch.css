@@ -13,7 +13,37 @@ h1 {
     text-align: center;
     margin: 1em;
     color: #FFF;
+    font-family: 'Rock Salt', cursive;
     font-size: 3rem;
+}
+
+#btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 1em;
+    padding: 0.75em 2em;
+    border: none;
+    border-radius: 5px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    background-color: #0040ff;
+    opacity: 0.8;
+    color: #FFF;
+    box-shadow: 0px 16px 10px -10px rgba(0, 0, 0, 0.7);
+    transition: all ease-in-out 300ms;
+}
+
+.btn:hover {
+    box-shadow: 0px 36px 19px -14px rgba(0, 0, 0, 0.7);
+    transform: translate(0px, -3px);
+    opacity: 1;
+
 }
 
 #main-wrapper {
@@ -30,9 +60,9 @@ h1 {
 .cell {
     border: 1px solid #444;
     background-color: #FFF;
-    transition: all 2s;
+    transition: all 350ms;
 }
 
 .fill-blue {
-    background-color: #004080;
+    background-color: darkblue;
 }
