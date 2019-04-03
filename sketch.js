@@ -17,21 +17,12 @@ function colorBlue() {
     let cells = document.querySelectorAll(".cell");
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener("mouseover", function() {
-            cells[i].classList.add("fill-blue");
+            cells[i].style.backgroundColor = "darkblue";
         }) 
     }
 }
 
-// forEach option
 function deleteGrid() {
-    let cells = document.querySelectorAll(".cell");
-    cells.forEach(function(cell) {
-        cell.parentNode.removeChild(cell);
-    })
-}
-
-// For loop option
-function deleteGrid2() {
     let cells = document.querySelectorAll(".cell");
     for (let i = 0; i < cells.length; i++) {
         cells[i].parentNode.removeChild(cells[i]);
@@ -47,6 +38,7 @@ resetButton.addEventListener("click", function() {
         cells[i].classList.remove("fill-blue"); 
         cells[i].style.backgroundColor = null;
     }
+    colorBlue();
 });
 
 let newGridButton = document.querySelector(".new-grid");
@@ -75,6 +67,6 @@ function selectRandomColor() {
     return hexColor;
 }
 
-selectRandomColor();
+// Default grid
 createGrid(16);
 
